@@ -1,0 +1,28 @@
+(had this before)
+(installed docker)
+docker pull bamos/openface
+
+git clone https://github.com/platanus/openface-api.git
+cd openface-api
+
+git init
+git add --all
+git commit -m "init"
+
+(test 'docker ps', nothing there, and 'heroku login')
+
+heroku container:login
+(Login Succeeded)
+
+heroku apps:create your-app-name
+
+heroku container:push web
+# careful, if you were on Windows, this can be messy - you need to change line endings of all .sh files, including the Dockerfile
+
+heroku container:release web
+# change to GET with
+# img1 = request.args.get("img1")
+
+heroku open
+
+#heroku run bash
